@@ -1,0 +1,8 @@
+---
+- name: Full Yum Update of the systems
+  hosts: serverb.jims.local
+  tasks:
+  - yum:
+      name: "*"
+      state: latest
+...
