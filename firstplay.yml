@@ -1,0 +1,7 @@
+---
+- name: Test play with ping
+  hosts: all
+  tasks:
+  - name: Ping the host as a test
+    ping:
+...
