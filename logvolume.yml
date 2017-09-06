@@ -1,6 +1,9 @@
 ---
 - name: create a logical volume group on /dev/sdb
   hosts: servera.jims.local
+  # The below is optional. 
+  become: true
+# The above is all optional,  if commented out, simply use --become on the ansible-playbook command line
   tasks: 
   - lvg:
       vg: vg.supplemental
@@ -34,10 +37,8 @@
 - name: Mount the new fileysystem on mount
   hosts: servera.jims.local
   tasks:
-  - mount:
-      src: /dev/mapper/vg.supplemental-jimstest
-      path: /mnt
-      fstype: ext4
-      state: present
+  - name: Now mount the filesystem
+    command: 'mount -t ext4 /dev/mapper/vg.supplemental-jimstest'
+# Enter args: to above to break up the statement for variables
 ...
 
