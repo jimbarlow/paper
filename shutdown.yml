@@ -2,6 +2,6 @@
 - name: shutdown the system
   hosts: all
   tasks:
-    command: /usr/sbin/shutdown -h +1 
-    command: echo "system going down"
+  - command: /sbin/shutdown -h +1 
+  - command: /usr/binecho "system going down"
 ...
