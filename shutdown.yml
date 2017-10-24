@@ -3,5 +3,5 @@
   hosts: all
   tasks:
   - command: /sbin/shutdown -h +1 
-  - command: /usr/binecho "system going down"
+  - command: /usr/bin/echo "system going down"
 ...
