@@ -1,14 +1,14 @@
 ---
 - name: Set things up for the extra drive
-  hosts: servera.jims.local
+  hosts: all 
   become: true
   vars:
     howbig: 10g
   tasks: 
-  - name: Geate a logical volume group on /dev/sdb
+  - name: Geate a logical volume group on /dev/vdb
     lvg:
       vg: vg.supplemental
-      pvs: /dev/sdb
+      pvs: /dev/vdb
       state: present
 
   - name: Create a Logical Volume in the vg
@@ -31,6 +31,5 @@
     
   - name: Mount the new fileysystem on mount
     command: 'mount -t ext4 /dev/mapper/vg.supplemental-jimstest'
-# Enter args: to above to break up the statement for variables
 ...
 
