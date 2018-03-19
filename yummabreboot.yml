@@ -5,4 +5,5 @@
   - yum:
       name: "*"
       state: latest
+  reboot_server_needed "{{ running_kernel_version.stdout !=  latest_kernel_version.stdout }}"
 ...
