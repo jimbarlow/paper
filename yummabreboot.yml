@@ -1,9 +1,0 @@
----
-- name: Full Yum Update of the systems
-  hosts: serverb.jims.local
-  tasks:
-  - yum:
-      name: "*"
-      state: latest
-  reboot_server_needed "{{ running_kernel_version.stdout !=  latest_kernel_version.stdout }}"
-...
