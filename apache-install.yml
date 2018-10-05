@@ -6,5 +6,6 @@
       name: httpd
       state: latest
     register: install_result
-#    debug: install_result
+  - debug: 
+      var: install_result
 ...
