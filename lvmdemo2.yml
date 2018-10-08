@@ -26,16 +26,22 @@
       dev: /dev/mapper/vg.supplemental-jimstest
     register: result
 
-  - debug:
-      var: result
 
-  - name: Let's make the mount point in fstab
-    lineinfile: 
-      path: /etc/fstab
-      line: /dev/mapper/vg.supplemental-jimstest  /mnt   ext4 defaults 0 0
-      insertafter: '^//dev//mapper//rhel-swap*'
-    
-  - name: Mount the new fileysystem on mount
-    command: 'mount -t ext4 /dev/mapper/vg.supplemental-jimstest'
+#   - name: Let's make the mount point in fstab
+#     lineinfile: 
+#       path: /etc/fstab
+#       line: /dev/mapper/vg.supplemental-jimstest  /mnt   ext4 defaults 0 0
+#       insertafter: '^//dev//mapper//rhel-swap*'
+#     
+#   - name: Mount the new fileysystem on mount
+#     command: 'mount -t ext4 /dev/mapper/vg.supplemental-jimstest'
+
+  - name: Setup the /etc/fstab
+    mount:
+      src: /dev/mapper/vg.supplemental-jimstest
+      path: /mnt
+      state: mounted
+      fstype: ext4
+      
 ...
 
