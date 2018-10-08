@@ -1,10 +1,11 @@
 ---
 - name: Set things up for the extra drive
-  hosts: all 
   become: true
   remote_user: devops
   vars:
+    whichhosts: all
     howbig: 10g
+  hosts: whichhosts 
   tasks: 
   - name: Geate a logical volume group on /dev/vdb
     lvg:
