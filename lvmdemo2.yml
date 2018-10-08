@@ -5,7 +5,7 @@
   vars:
     whichhosts: all
     howbig: 10g
-  hosts: whichhosts 
+  hosts: "{{ whichhosts }}"
   tasks: 
   - name: Geate a logical volume group on /dev/vdb
     lvg:
