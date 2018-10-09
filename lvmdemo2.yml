@@ -3,7 +3,7 @@
   become: true
   remote: devops
   vars:
-    whichhosts: all
+    which_hosts: all
     howbig: 10g
   hosts: "{{ which_hosts }}"
   tasks: 
