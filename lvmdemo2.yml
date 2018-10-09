@@ -1,7 +1,7 @@
 ---
 - name: Set things up for the extra drive
   become: true
-  remote_user: devops
+  remote: devops
   vars:
     whichhosts: all
     howbig: 10g
@@ -43,6 +43,6 @@
       path: /mnt
       state: mounted
       fstype: ext4
-      
+     # end of demo on this play 
 ...
 
