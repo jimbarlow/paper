@@ -1,7 +1,7 @@
 ---
 - name: Set things up for the extra drive
   become: true
-  remote: devops
+  remote_user: devops
   vars:
   #  which_hosts: all
     howbig: 10g
