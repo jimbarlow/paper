@@ -6,24 +6,25 @@
       name: "*"
       state: latest
     register: output
-- debug: 
+
+  - debug: 
     var: "{{ output }}"
 
-- name: reboot if kernel is changed
-  shell: sleep 2 && shutdown -r now "Rebooting from a playbook"
-  async: 1
-  poll: 0
-  become: True
-  ignore_errors: yes
-
-- name: waiting for a machine to complete reboot
-  become: False
-  delegate_to: localhost  
-  wait_for:
-    host: "{{ inventory_hostname }}"
-    state: started
-    delay: 30
-    timeout: 300
-    port: 22
-    search_regex: OpenSSH
+  - name: reboot if kernel is changed
+    shell: sleep 2 && shutdown -r now "Rebooting from a playbook"
+    async: 1
+    poll: 0
+    become: True
+    ignore_errors: yes
+  
+  - name: waiting for a machine to complete reboot
+    become: False
+    delegate_to: localhost  
+    wait_for:
+      host: "{{ inventory_hostname }}"
+      state: started
+      delay: 30
+      timeout: 300
+      port: 22
+      search_regex: OpenSSH
 ...
