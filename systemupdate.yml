@@ -4,6 +4,9 @@
   vars:
   tasks:
   - yum:
+      pkg: yum-utils
+      state: installed
+  - yum:
       name: "*"
       state: latest
     register: output
