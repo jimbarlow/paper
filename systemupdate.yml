@@ -1,6 +1,7 @@
 ---
-- name: Full Yum Update of the systems
+- name: Full Yum Update of the Systems
   hosts: all
+  vars:
   tasks:
   - yum:
       name: "*"
