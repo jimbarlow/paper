@@ -17,9 +17,9 @@
   - name: Check if reboot is necessary.
     command: needs-restarting -r
     register: reboot_check
-    ignore_errors: true
+    # ignore_errors: true
     # changed_when: false
-    # failed_when: reboot_check.rc > 1
+    failed_when: reboot_check.rc > 1
   
   - name: reboot if kernel is changed
     shell: sleep 2 && shutdown -r now "Rebooting from a playbook"
