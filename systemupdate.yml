@@ -3,16 +3,18 @@
   hosts: all
   vars:
   tasks:
-  - yum:
+  - name: Ensuring yum-utils is installed for updates
+    yum:
       pkg: yum-utils
       state: installed
-  - yum:
+  - name: Full update to the latest
+    yum:
       name: "*"
       state: latest
     register: output
 
   - debug: 
-    var: "{{ output }}"
+      var: "{{ output }}"
 
   - name: Check if reboot is necessary.
     command: needs-restarting -r
