@@ -20,7 +20,7 @@
     command: needs-restarting -r
     register: reboot_check
     # ignore_errors: true
-    # changed_when: false
+    changed_when: false
     failed_when: reboot_check.rc > 1
   
   - name: reboot if kernel is changed
