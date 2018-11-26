@@ -5,6 +5,7 @@
   vars:
   #  which_hosts: all
     howbig: 10g
+    should_i_reformat: false
   hosts: "{{ which_hosts }}"
   tasks: 
   - name: Geate a logical volume group on /dev/vdb
@@ -25,6 +26,7 @@
     filesystem:
       fstype: ext4
       dev: /dev/mapper/vg.supplemental-jimstest
+      force: "{{ should_i_reformat }}"
     register: result
 
 
