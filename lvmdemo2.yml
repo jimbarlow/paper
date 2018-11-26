@@ -21,6 +21,7 @@
 #      size: 19g
 #      size: +100%FREE
       size: "{{ howbig }}"
+      force: "{{ should_i_reformat }}"
   - name: unmount current filesystem if overwriting
     mount:
       src: /dev/mapper/vg.supplemental-jimstest
