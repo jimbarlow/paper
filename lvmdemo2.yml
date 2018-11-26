@@ -27,7 +27,7 @@
       path: /mnt
       state: unmounted
       fstype: ext4
-    
+    when: should_i_reformat
   - name: Create a fileystem on the Logical Volume
     filesystem:
       fstype: ext4
