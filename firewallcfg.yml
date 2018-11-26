@@ -1,7 +1,8 @@
 ---
 - name: Firewall Configuration
   vars:
-  hosts: changeme
+    hosts_to_configure: changeme
+  hosts: "{{ hosts_to_configure }}"
   tasks:
     - name: install firewalld
       yum: 
