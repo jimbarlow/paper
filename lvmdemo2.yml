@@ -21,7 +21,13 @@
 #      size: 19g
 #      size: +100%FREE
       size: "{{ howbig }}"
-
+  - name: unmount current filesystem if overwriting
+    mount:
+      src: /dev/mapper/vg.supplemental-jimstest
+      path: /mnt
+      state: unmounted
+      fstype: ext4
+    
   - name: Create a fileystem on the Logical Volume
     filesystem:
       fstype: ext4
