@@ -1,0 +1,20 @@
+---
+- name: Restore the snapshot we want
+  vars:
+    snapshot_name: ready2database
+    vms_to_modify:
+      - db1
+      - db2
+      - db3    
+  hosts: "{{ virthost | default('localhost') }}"
+  tasks:
+    - name: Issue a Virsh snapshot revirt
+      command: virsh snapshot-revert {{ item }} {{ snapshot_name }}
+      become: True
+      with_items: "{{ vms_to_modify }}"     
+
+# original script
+#!/bin/bash
+# sudo virsh snapshot-revert db1 ready2database
+# sudo virsh snapshot-revert db2 ready2database
+# sudo virsh snapshot-revert db3 ready2database

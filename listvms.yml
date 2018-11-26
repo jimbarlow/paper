@@ -1,0 +1,15 @@
+---
+- name: list the vms running on the host
+  vars:
+    vmstate: running
+  hosts: "{{ virthost | default('localhost') }}"
+  # remote_user: root
+  tasks:
+    - name: List all VMs
+      virt: 
+        command: list_vms
+        state: "{{ vmstate }}" 
+      register: running_vms 
+    - name: Print out the results
+      debug:
+        var: running_vms
