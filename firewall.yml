@@ -8,9 +8,9 @@
 
     - name: Bring down repo with git
       local_action:
-        git:
-          repo: https://github.com/jimbarlow/ansible-demo
-          dest: downloaded
+      git:
+        repo: https://github.com/jimbarlow/ansible-demo
+        dest: downloaded
      #   delegate_to: localhost
      #   become: true
 
