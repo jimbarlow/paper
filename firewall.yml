@@ -22,4 +22,5 @@
         name: 'downloaded/ipainstall/roles/ipafwconfig'
       become: true
       remote_user: devops
+      become_method: su
    
