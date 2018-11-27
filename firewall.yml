@@ -7,11 +7,12 @@
   tasks:
 
     - name: Bring down repo with git
-      git:
-        repo: https://github.com/jimbarlow/ansible-demo
-        dest: downloaded
-      delegate_to: localhost
-      become: true
+      local_action:
+        git:
+          repo: https://github.com/jimbarlow/ansible-demo
+          dest: downloaded
+     #   delegate_to: localhost
+     #   become: true
 
     - name: 
       include_role: 
