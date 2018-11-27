@@ -15,9 +15,10 @@
     - name: 
       include_role: 
         name: 'downloaded/ipainstall/roles/ipafirewall'
+      become: true
 
     - name:
       include_role:
         name: 'downloaded/ipainstall/roles/ipafwconfig'
-...
+      become: true
    
