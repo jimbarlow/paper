@@ -1,7 +1,8 @@
 ---
 - name: configure the firewall
   vars:
-  hosts: all
+    hosts_to_configure: all
+  hosts: "{{ hosts_to_configure }}" 
 
   tasks:
 
