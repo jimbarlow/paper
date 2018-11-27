@@ -1,0 +1,21 @@
+---
+- name: configure the firewall
+  vars:
+  hosts: all
+
+  tasks:
+
+    - name: Bring down repo with git
+      git:
+        repo: https://github.com/jimbarlow/ansible-demo
+        dest: downloaded
+
+    - name: 
+      include_role: 
+        name: 'downloaded/ipainstall/roles/ipafirewall'
+
+    - name:
+      include_role:
+        name: 'downloaded/ipainstall/roles/ipafwconfig'
+...
+   

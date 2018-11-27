@@ -5,11 +5,14 @@
       - db1
       - db2
       - db3
+      - Server-A
+      - Server-B
+      - Server-C
     vmstate: running
-  hosts: "{{ virthost | default('localhost') }}"
+  hosts: "{{ virthost | default('jbarlow') }}"
   # remote_user: root
   tasks:
-    - name: start vm
+    - name: "{{ vmstate }} VMs"
       virt:
           name: "{{ item }}"
           state: "{{ vmstate }}"
