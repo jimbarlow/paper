@@ -1,0 +1,36 @@
+---
+- name: configure the firewall
+  vars:
+    hosts_to_configure: all
+    ports:
+        - 80/tcp
+        - 443/tcp
+
+  hosts: "{{ hosts_to_configure }}" 
+
+  tasks:
+
+    - name: install firewalld
+      yum: 
+        name: firewalld
+        state: latest
+    
+    - name: start and enable firewalld service
+      service:
+        name: firewalld
+        state: started
+        enabled: true
+    
+    - name: firewall services config
+      firewalld:
+        state: enabled
+        immediate: True
+        permanent: True
+        port: "{{ item }}"
+      with_items: "{{ ports }}"
+    
+    - name: restart firewalld
+      service:
+        name: firewalld
+        state: restarted
+...
