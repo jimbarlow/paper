@@ -1,7 +1,8 @@
 ---
 - name: Full Yum Update of the Systems
-  hosts: all
   vars:
+    which_hosts: all
+  hosts: "{{ which_hosts }}"
   tasks:
   - name: Ensuring yum-utils is installed for updates
     yum:
