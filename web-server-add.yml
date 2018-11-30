@@ -2,7 +2,7 @@
 - name: add a webserver capability
   vars:
     destmachine: all:!sat.example.com
-  hosts: "{{ destmachine }}"
+  hosts: "{{ which_hosts }}"
   tasks:
     - name: Install Apache Web Server
       yum:

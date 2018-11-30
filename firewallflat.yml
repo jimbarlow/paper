@@ -1,12 +1,12 @@
 ---
 - name: configure the firewall
   vars:
-    hosts_to_configure: all
+    which_hosts: all
     ports:
         - 80/tcp
         - 443/tcp
 
-  hosts: "{{ hosts_to_configure }}" 
+  hosts: "{{ which_hosts }}" 
 
   tasks:
 
