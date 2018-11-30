@@ -2,7 +2,7 @@
 - name: Restore the snapshot we want
   vars:
     snapshot_name: ready2database
-    vms_to_modify:
+    which_hosts:
       - db1
       - db2
       - db3    
@@ -11,7 +11,7 @@
     - name: Issue a Virsh snapshot revirt
       command: virsh snapshot-revert {{ item }} {{ snapshot_name }}
       become: True
-      with_items: "{{ vms_to_modify }}"     
+      with_items: "{{ which_hosts }}"     
 
 # original script
 #!/bin/bash
