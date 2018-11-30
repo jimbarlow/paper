@@ -6,12 +6,12 @@
       - db1
       - db2
       - db3    
-  hosts: "{{ virthost | default('localhost') }}"
+  hosts: "{{ virthost | default('jbarlow') }}"
   tasks:
     - name: Issue a Virsh snapshot revirt
       command: virsh snapshot-revert {{ item }} {{ snapshot_name }}
       become: True
-      with_items: "{{ which_hosts }}"     
+      with_items: "{{ which_vms }}"     
 
 # original script
 #!/bin/bash
