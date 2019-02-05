@@ -1,13 +1,19 @@
 [all:vars]
 ansible_user=devops
-[servers]
 servera ansible_host=192.168.144.41
 serverb ansible_host=192.168.144.42
 serverc ansible_host=192.168.144.43
-[dbservers]
 db1 ansible_host=192.168.144.21
 db2 ansible_host=192.168.144.22
 db3 ansible_host=192.168.144.23
+[servers]
+servera 
+serverb
+serverc
+[dbservers]
+db1
+db2
+db3
 [web]
-serverb ansible_host=192.168.144.42
-serverc ansible_host=192.168.144.43
+serverb
+serverc
