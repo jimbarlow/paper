@@ -1,5 +1,5 @@
 [all:vars]
-ansible_user: devops
+ansible_user=devops
 [servers]
 servera ansible_host=192.168.144.41
 serverb ansible_host=192.168.144.42

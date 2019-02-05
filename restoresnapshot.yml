@@ -1,11 +1,12 @@
 ---
 - name: Restore the snapshot we want
   vars:
-    snapshot_name: ready2database
-    which_hosts:
+    snapshot_name: gud2go
+    which_vms:
       - db1
       - db2
       - db3    
+    virthost: jbarlow
   hosts: "{{ virthost | default('jbarlow') }}"
   tasks:
     - name: Issue a Virsh snapshot revirt

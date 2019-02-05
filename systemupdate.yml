@@ -43,4 +43,6 @@
       timeout: 300
       port: 22
       search_regex: OpenSSH
+    when: 
+      - reboot_check.rc == 1
 ...

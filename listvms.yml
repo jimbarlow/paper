@@ -9,7 +9,7 @@
       virt: 
         command: list_vms
         state: "{{ vmstate }}" 
-      register: running_vms 
+      register: selected_vms 
     - name: Print out the results
       debug:
-        var: running_vms
+        var: selected_vms
