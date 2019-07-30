@@ -1,0 +1,7 @@
+---
+- name: Configure important user consistently
+  hosts: all
+  tasks:
+    - name: what ansible version am I running
+      debug:
+        var: "{{ ansible_version.full }}"
