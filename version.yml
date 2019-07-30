@@ -4,4 +4,4 @@
   tasks:
     - name: what ansible version am I running
       debug:
-        var: "{{ ansible_version }}"
+        var: ansible_version.string
