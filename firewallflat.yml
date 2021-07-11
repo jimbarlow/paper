@@ -1,26 +1,31 @@
 ---
 - name: configure the firewall
   vars:
-    which_hosts: all
     ports:
+        - 22/tcp
         - 80/tcp
         - 443/tcp
-
-  hosts: "{{ which_hosts }}" 
+        - 53/tcp
+        - 9000/tcp
+        - 6443/tcp
+        - 22623/tcp
+        - 2049/tcp
+        - 2049/udp
+  hosts: all 
 
   tasks:
-
     - name: install firewalld
       yum: 
         name: firewalld
         state: latest
-    
+          
     - name: start and enable firewalld service
       service:
         name: firewalld
         state: started
         enabled: true
-    
+      tags: startfirewalld
+
     - name: firewall services config
       firewalld:
         state: enabled
@@ -32,5 +37,4 @@
     - name: restart firewalld
       service:
         name: firewalld
-        state: restarted
-...
+        state: started
